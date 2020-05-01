@@ -335,3 +335,37 @@ export const GET_MOBILITIES = gql`
     }
 
 `;
+
+export const GET_MOBILITY = gql`
+
+    query getMobility($id: ID){
+        getMobility(id: $id){
+            id
+            day
+            department
+            squares{
+                id
+                squareNumber
+            }
+            machines{
+                id
+                machineNumber
+            }
+            operators{
+                id
+                name
+            }
+            products{
+                id
+                productName
+            }
+            indicators{
+                indicator
+            }
+            observations{
+                observation
+            }
+        }
+    }
+
+`;

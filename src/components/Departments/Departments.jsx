@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
+import ServerError from '../Error/ServerError';
 
 //Import Queries & Mutations
 import { Query, Mutation } from 'react-apollo';
@@ -97,7 +98,9 @@ class Departments extends Component {
                                 
                             </Fragment>
                     );
-                    if(error) return `Error: ${error.message}`;
+                    if(error) return (
+                        <ServerError />
+                    );
                 
                     return (
                         <Fragment>

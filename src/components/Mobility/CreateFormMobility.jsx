@@ -75,6 +75,7 @@ class CreateFormMobility extends Component {
             day,
             department: departmentInput
         }
+        console.log(input)
 
         return ( 
             <Fragment>

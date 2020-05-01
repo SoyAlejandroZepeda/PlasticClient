@@ -264,19 +264,15 @@ export const UPDATE_MOBILITY = gql`
             day
             squares{
                 id
-                squareNumber
             }
             machines{
                 id
-                machineNumber
             }
             operators{
                 id
-                name
             }
             products{
                 id
-                productName
             }
             indicators{
                 indicator

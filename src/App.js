@@ -30,7 +30,8 @@ import Report from './components/Mobility/Report';
 import GetWeeks from './components/Mobility/GetWeeks';
 import GetDays from './components/Mobility/GetDays';
 import MobilityReport from './components/Mobility/MobilityReport';
-import CreateMobility from './components//Mobility/CreateMobility';
+import CreateMobility from './components/Mobility/CreateMobility';
+import EditMobility from './components/Mobility/EditMobility';
 
 const client = new ApolloClient({
   uri: "http://localhost:8000/graphql",
@@ -77,6 +78,7 @@ function App() {
               <Route exact path = '/movilidad/mes/:id/semana/:id' component = { GetDays } />
               <Route exact path = '/movilidad/semana/:id/dia/:id' component = { MobilityReport } /> 
               <Route exact path = '/movilidad/nuevo/dia/:id' component = { CreateMobility } /> 
+              <Route exact path = '/movilidad/editar/:id' component = { EditMobility } />
             </Switch>
           </div>
         </Fragment>

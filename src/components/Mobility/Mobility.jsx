@@ -34,7 +34,7 @@ class Mobility extends Component {
                                     <p className="card-text font-weight-bold">Hora de Registro: 
                                         <span className="font-weight-normal"> {date.toLocaleString("es-MX")} </span>
                                     </p>
-                                    <Link to={`/movilidad/editar/dia/${mobility.day}`}
+                                    <Link to={`/movilidad/editar/${mobility.id}`}
                                         className="btn btn-outline-primary font-weight-bold d-block my-3"
                                     >
                                         Iniciar Movilidad

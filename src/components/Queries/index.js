@@ -267,6 +267,17 @@ export const GET_MONTHS = gql`
 
 `;
 
+export const GET_MONTH = gql`
+
+    query getMonth($id: ID){
+        getMonth(id: $id){
+            id
+            month
+        }
+    }
+
+`;
+
 //Weeks Queries
 export const GET_WEEKS = gql`
 
@@ -275,6 +286,17 @@ export const GET_WEEKS = gql`
             id
             week
             month
+        }
+    }
+
+`;
+
+export const GET_WEEK = gql`
+
+    query getWeek($id: ID){
+        getWeek(id: $id){
+            id
+            week
         }
     }
 
@@ -328,6 +350,7 @@ export const GET_MOBILITIES = gql`
     query getMobilities($day: String){
         getMobilities(day: $day){
             id
+            week
             day
             department
             register
@@ -341,6 +364,79 @@ export const GET_MOBILITY = gql`
     query getMobility($id: ID){
         getMobility(id: $id){
             id
+            week
+            day
+            department
+            squares{
+                id
+                squareNumber
+            }
+            machines{
+                id
+                machineNumber
+            }
+            operators{
+                id
+                name
+            }
+            products{
+                id
+                productName
+            }
+            indicators{
+                indicator
+            }
+            observations{
+                observation
+            }
+        }
+    }
+
+`;
+
+//Mobilities From Week
+export const GET_MOBILITIES_WEEK = gql`
+
+    query getMobilitiesWeek($day: [String], $department: String){
+        getMobilitiesWeek(day: $day, department: $department){
+            id
+            week
+            day
+            department,
+            squares{
+                id
+                squareNumber
+            }
+            machines{
+                id
+                machineNumber
+            }
+            operators{
+                id
+                name
+            }
+            products{
+                id
+                productName
+            }
+            indicators{
+                indicator
+            }
+            observations{
+                observation
+            }
+        }
+    }
+
+`;
+
+//Mobilities From Month
+export const GET_MOBILITIES_MONTH = gql`
+
+    query getMobilitiesMonth($week: [String], $department: String){
+        getMobilitiesMonth(week: $week, department: $department){
+            id
+            week
             day
             department
             squares{

@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import makeAnimated from 'react-select/animated';
 import Select from 'react-select';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 //Queries
 import { Mutation } from 'react-apollo';
@@ -13,12 +13,14 @@ import {floppyDisk} from 'react-icons-kit/icomoon/floppyDisk';
 
 const initialState = {
     department: '',
+    weeK: '',
     day: ''
 }
 
 class CreateFormMobility extends Component {
     state = { 
         department: '',
+        week: this.props.match.url.split('/', 4).pop(),
         day: this.props.day
     }
 
@@ -40,8 +42,8 @@ class CreateFormMobility extends Component {
 
     //Validate Form
     validateForm = () => {
-        const { department, day } = this.state;
-        const noValid = !department || !day;
+        const { department, week, day } = this.state;
+        const noValid = !department || !week || !day;
         return noValid;
     }
 
@@ -67,11 +69,12 @@ class CreateFormMobility extends Component {
     render() { 
 
         //Function Destructuring
-        const { day } = this.state;
+        const { week, day } = this.state;
 
         const departmentInput = this.state.department.id
 
         const input = {
+            week,
             day,
             department: departmentInput
         }
@@ -107,6 +110,21 @@ class CreateFormMobility extends Component {
                                 </div>
 
                                 <div className="form-group">
+                                    <label>Semana: </label>
+                                    <input 
+                                        type="text"
+                                        name="week"
+                                        className="form-control"
+                                        placeholder="Ingrese la semana"
+                                        autoComplete="off"
+                                        spellCheck="false"
+                                        defaultValue={this.state.week}
+                                        onChange={this.updateState}
+                                        disabled
+                                    />
+                                </div>
+
+                                <div className="form-group">
                                     <label>Día: </label>
                                     <input 
                                         type="text"
@@ -115,7 +133,7 @@ class CreateFormMobility extends Component {
                                         placeholder="Ingrese el día"
                                         autoComplete="off"
                                         spellCheck="false"
-                                        defaultValue={this.props.day}
+                                        defaultValue={this.state.day}
                                         onChange={this.updateState}
                                         disabled
                                     />

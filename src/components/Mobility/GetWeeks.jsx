@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import Weeks from './Weeks';
+import { Link } from 'react-router-dom';
 
 //Import Queries
 import { Query } from 'react-apollo';
@@ -15,6 +16,8 @@ class GetWeeks extends Component {
             <Fragment>
 
                 <h2 className="text-center mb-5">Informe Semanal</h2>
+
+                <Link to={`/movilidad/grafica/mensual/${month}`} className="btn btn-warning font-weight-bold mb-5">Mostrar gráfica mensual</Link>
 
                 <div className="row">
                     <Query

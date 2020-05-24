@@ -225,6 +225,7 @@ export const CREATE_MOBILITY = gql`
         createMobility(input: $input){
             id
             department
+            week
             day
             squares{
                 id
@@ -261,6 +262,7 @@ export const UPDATE_MOBILITY = gql`
         updateMobility(input: $input){
             id
             department
+            week
             day
             squares{
                 id

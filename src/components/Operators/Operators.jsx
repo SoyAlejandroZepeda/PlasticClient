@@ -4,7 +4,7 @@ import ButtonStatus from './ButtonStatus';
 
 //Import Queries
 import { Query } from 'react-apollo';
-import { GET_ALL_OPERATORS } from '../Queries';
+import { GET_ALL_OPERATORS, GET_MACHINE } from '../Queries';
 
 //Icons
 import Icon from 'react-icons-kit';
@@ -46,6 +46,7 @@ class Operators extends Component {
                         </Fragment>
                     );
                     if(error) return `Error: ${error.message}`;
+                    const dataOperators = data.getAllOperators;
 
                     return (
                         <Fragment>
@@ -56,11 +57,12 @@ class Operators extends Component {
                                         <th scope="col">Operador</th>
                                         <th scope="col">Asignar</th>
                                         <th scope="col">Status</th>
+                                        <th scope="col">Máquina</th>
                                     </tr>
                                 </thead>
 
                                 <tbody>
-                                    {data.getAllOperators.map(item => {
+                                    {dataOperators.map(item => {
 
                                         const {id} = item;
 
@@ -82,6 +84,12 @@ class Operators extends Component {
                                                         operators={item}
                                                     />
                                                 </td>
+                                                <td>
+                                                    {
+                                                        item.machine
+                                                    }
+                                                </td>
+                                                
                                             </tr>
 
                                         )

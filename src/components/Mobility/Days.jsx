@@ -10,6 +10,7 @@ class Days extends Component {
 
         return ( 
             <Fragment>
+
                 <div className="col-md-4">
                     <div className={`card mb-3`}>
                         <div className="card-body">
@@ -28,6 +29,7 @@ class Days extends Component {
                         </div>
                     </div>
                 </div>
+
             </Fragment>
         );
     }

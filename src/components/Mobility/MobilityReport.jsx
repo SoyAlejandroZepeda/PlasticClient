@@ -4,7 +4,7 @@ import Mobility from './Mobility';
 
 //Queries
 import { Query } from 'react-apollo';
-import { GET_DAY, GET_MOBILITIES, GET_DEPARTMENT } from '../Queries';
+import { GET_DAY, GET_MOBILITIES } from '../Queries';
 
 //Icons
 import Icon from 'react-icons-kit';
@@ -16,6 +16,7 @@ class MobilityReport extends Component {
 
         const id = this.props.match.params.id;
         const day = id;
+        const week = this.props.match.url.split('/', 4).pop();
 
         return ( 
             <Fragment>
@@ -31,10 +32,10 @@ class MobilityReport extends Component {
                     const dayNumber = data.getDay.dayNumber
                     const dayName = data.getDay.dayName;
 
-                    return(
+                    return( 
                         <Fragment>
 
-                    <Link to={`/movilidad/nuevo/dia/${id}`} 
+                    <Link to={`/movilidad/semana/${week}/nuevo/dia/${id}`} 
                         className="btn btn-primary float-right font-weight-bold">
                         <Icon icon={plus} /> Crear Registro
                     </Link><br></br><br></br>
@@ -62,6 +63,8 @@ class MobilityReport extends Component {
                                     key={mobility.id}
                                     mobility={mobility}
                                     department={mobility.department}
+                                    week={week}
+                                    day={day}
                                 />
                             ))
                         );

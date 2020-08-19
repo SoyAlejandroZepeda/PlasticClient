@@ -17,7 +17,9 @@ class GetWeeks extends Component {
 
                 <h2 className="text-center mb-5">Informe Semanal</h2>
 
-                <Link to={`/movilidad/grafica/mensual/${month}`} className="btn btn-warning font-weight-bold mb-5">Mostrar gráfica mensual</Link>
+                <Link to={`/movilidad/grafica/mensual/${month}`} className="btn btn-warning font-weight-bold mb-5 mr-3">Mostrar gráfica mensual</Link>
+
+                <Link to={`/movilidad/nueva/semana/${month}`} className="btn btn-primary font-weight-bold mb-5"> Crear nueva semana</Link>
 
                 <div className="row">
                     <Query

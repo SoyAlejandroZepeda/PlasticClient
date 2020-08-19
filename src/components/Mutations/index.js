@@ -286,3 +286,23 @@ export const UPDATE_MOBILITY = gql`
     }
 
 `;
+
+export const CREATE_WEEK = gql`
+
+    mutation createWeek($input: WeekInput){
+        createWeek(input: $input){
+            id
+        }
+    }
+
+`;
+
+export const CREATE_DAY = gql`
+
+    mutation createDay($input: DayInput){
+        createDay(input: $input){
+            id
+        }
+    }
+    
+`;

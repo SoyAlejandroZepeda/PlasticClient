@@ -37,6 +37,8 @@ import WeekDepartments from './components/Panel/WeekDepartment';
 import PanelWeek from './components/Panel/PanelWeek';
 import MonthDepartments from './components/Panel/MonthDepartment';
 import PanelMonth from './components/Panel/PanelMonth';
+import CreateWeek from './components/Mobility/CreateWeek';
+import CreateDay from './components/Mobility/CreateDay';
 
 const client = new ApolloClient({
   uri: "http://localhost:8000/graphql",
@@ -89,6 +91,8 @@ function App() {
               <Route exact path = '/movilidad/grafica/semana/:id/departamento/:id' component = { PanelWeek } />
               <Route exact path = '/movilidad/grafica/mensual/:id' component = { MonthDepartments } />
               <Route exact path = '/movilidad/grafica/mensual/:id/departamento/:id' component = { PanelMonth } /> 
+              <Route exact path = '/movilidad/nueva/semana/:id' component = { CreateWeek } />
+              <Route exact path = '/movilidad/mes/:id/nuevo/dia/:id' component = { CreateDay } />
             </Switch>
           </div>
         </Fragment>

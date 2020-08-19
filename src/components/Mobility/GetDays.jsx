@@ -12,13 +12,17 @@ class GetDays extends Component {
 
         const week = this.props.match.params.id;
 
+        const month = this.props.match.url.split('/', 4).pop();
+
         return ( 
             <Fragment>
 
                 <h2 className="text-center mb-5">Informe Diario</h2>
 
-                <Link to={`/movilidad/grafica/semana/${week}`} className="btn btn-warning font-weight-bold mb-5">Mostrar gráfica semanal</Link>
+                <Link to={`/movilidad/grafica/semana/${week}`} className="btn btn-warning font-weight-bold mb-5 mr-3">Mostrar gráfica semanal</Link>
 
+                <Link to={`/movilidad/mes/${month}/nuevo/dia/${week}`} className="btn btn-primary font-weight-bold mb-5">Crear nuevo día</Link>
+                
                 <div className="row">
                     <Query
                         query={GET_DAYS}
